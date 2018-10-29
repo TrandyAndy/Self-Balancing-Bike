@@ -53,9 +53,9 @@ cGyroansteuerung::cGyroansteuerung(char GyroPWMPin)
 
 bool cGyroansteuerung::setLeistung(char pSollLeistung)
 {
-  if (pSollLeistung<maxLeistung&&pSollLeistung>=0)
+  if (pSollLeistung<=100&&pSollLeistung>=0)
   {
-    sollLeistung=pSollLeistung;
+    sollLeistung=pSollLeistung*maxLeistung/100;
     return 0;
   }
   return 1;
